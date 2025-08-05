@@ -98,7 +98,7 @@ function analyzeSalesData(data, options) {
             if (!seller.products_sold[item.sku]) {
                 seller.products_sold[item.sku] = 0;
             }
-            seller.products_sold[item.sku] += 1
+            seller.products_sold[item.sku] += item.quantity
             // По артикулу товара увеличить его проданное количество у продавца
         });
     });
@@ -123,5 +123,5 @@ function analyzeSalesData(data, options) {
         sales_count: seller.sales_count, // Целое число, количество продаж продавца
         top_products: seller.top_products, // Массив объектов вида: { "sku": "SKU_008","quantity": 10}, топ-10 товаров продавца
         bonus: +seller.bonus.toFixed(2) // Число с двумя знаками после точки, бонус продавца
-    }));
+    }))
 }
